@@ -8,7 +8,7 @@ int totalWaysToClimb(int n){
 
     return totalWaysToClimb(n-1) + totalWaysToClimb(n-2) + totalWaysToClimb(n-3);
 
-}ls
+}
 
 int main() {
     int n = 5;
