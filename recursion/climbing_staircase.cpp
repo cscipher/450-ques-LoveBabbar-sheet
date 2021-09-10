@@ -13,6 +13,5 @@ int totalWaysToClimb(int n){
 int main() {
     int n = 5;
     cout<<totalWaysToClimb(n);
-
     return 0;
 }
