@@ -35,8 +35,8 @@ class Node{
 };
 
 class LinkedList {
-    Node* head;
     public:
+        Node* head;
         LinkedList(){
 			head = NULL;
 		}
@@ -124,6 +124,29 @@ class LinkedList {
             }
         }
         
+        int LengthLL(Node *x){
+            int c=0;
+            while(x){
+                c++;
+                x=x->next;
+            }
+            return c;
+        }
+
+        bool checkPalindrome(Node *ptr){
+            stack<int> st;
+            int l = LengthLL(ptr);
+            loop(i,0,ceil(l/2)){
+                st.push(ptr->v);
+                ptr = ptr->next;
+            }
+            loop(i,ceil(l/2),l){
+                if(!st.empty()) st.pop();
+                ptr=ptr->next;
+            }
+            return st.empty();
+
+        }
 };
 
 
@@ -134,12 +157,14 @@ int main() {
     LinkedList LL = LinkedList();
     LL.insert(0,20);
     LL.insert(1,25);
-    LL.insert(2,50);
-    LL.insert(3,100);
+    // LL.insert(2,25);
+    LL.insert(2,25);
+    LL.insert(3,20);
     LL.display();
-
-    pn("Deleted at i=2");
-    LL.remove(2);
-    LL.display();
+    cout<<endl;
+    pn(LL.checkPalindrome(LL.head));
+    // pn("Deleted at i=2");
+    // LL.remove(2);
+    // LL.display();
 
 }
